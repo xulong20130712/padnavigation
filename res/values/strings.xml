@@ -4,5 +4,7 @@
     <string name="app_name">mySlide</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="mostor">Mostor</string>
+    <string name="mobile">Mobile</string>
 
 </resources>

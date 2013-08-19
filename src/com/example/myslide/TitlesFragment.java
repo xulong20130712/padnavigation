@@ -1,18 +1,15 @@
 package com.example.myslide;
 
-import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-@SuppressLint("NewApi")
 public class TitlesFragment extends ListFragment {
-    private static final String[] WEEKS = new String[] { "Sunday", "Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+    private static final String[] TITLES = new String[] {"存储", "账号", "设置","联网状态", "任务"};
 
     // 初始化的选择位置
     int mCurCheckPosition = 0;
@@ -22,7 +19,7 @@ public class TitlesFragment extends ListFragment {
         super.onActivityCreated(savedInstanceState);
 
         // 设置要显示的数据
-        setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_activated_1, android.R.id.text1, WEEKS));
+        setListAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_activated_1, android.R.id.text1, TITLES));
         showDetails(mCurCheckPosition);
     }
 
@@ -38,7 +35,6 @@ public class TitlesFragment extends ListFragment {
             getListView().setItemChecked(index, true);
             // 新建DetailFragment的实例
             details = DetailsFragment.newInstance(index);
-            
             FragmentTransaction ft = fm.beginTransaction();
             // 替换FrameLayout为DetailFragment 类似于 事务
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -47,8 +43,6 @@ public class TitlesFragment extends ListFragment {
             // 提交
             ft.commit();
             
-            
-            Log.e("******åå", index+ ";;;;;;"+ details.getShowIndex());
         }
     }
 
